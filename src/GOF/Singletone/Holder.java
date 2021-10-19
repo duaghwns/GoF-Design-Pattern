@@ -10,5 +10,5 @@ public class Holder {
     public static Holder getInstance() {
         return InnerInstanceClass.instance;
     }
-asdf
+
 }
