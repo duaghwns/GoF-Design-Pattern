@@ -1,4 +1,4 @@
-package GOF.Singletone;
+package GOF.Singleton;
 
 public class ThreadSafe {
     private static ThreadSafe instance;
