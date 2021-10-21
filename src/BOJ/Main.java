@@ -10,6 +10,11 @@ public class Main {
 
         System.out.print("입력 : ");
         String lineString =  bufferedReader.readLine();
-        System.out.print("출력 : "+ lineString);
+        System.out.println("출력 : "+ lineString);
+
+        System.out.print("입력 : ");
+        String hi = bufferedReader.readLine();
+        System.out.println("출력 : "+ hi);
+
     }
 }
