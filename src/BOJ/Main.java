@@ -8,13 +8,15 @@ public class Main {
         Reader reader = new InputStreamReader(input);
         BufferedReader bufferedReader = new BufferedReader(reader);
 
-        System.out.print("입력 : ");
-        String lineString =  bufferedReader.readLine();
-        System.out.println("출력 : "+ lineString);
+        int a = Integer.parseInt(bufferedReader.readLine());
+        int b = Integer.parseInt(bufferedReader.readLine());
+        int c = Integer.parseInt(bufferedReader.readLine());
 
-        System.out.print("입력 : ");
-        String hi = bufferedReader.readLine();
-        System.out.println("출력 : "+ hi);
+        int count = 1;
+        while((a+(b*count))>c*count){
+            count++;
+        }
 
+        System.out.println(count+1);
     }
 }
