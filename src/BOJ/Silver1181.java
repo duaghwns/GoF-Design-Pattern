@@ -1,4 +1,4 @@
-package BOJ.Silver;
+package BOJ;
 
 public class Silver1181 {
 }

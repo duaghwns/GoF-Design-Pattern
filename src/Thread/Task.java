@@ -1,4 +1,4 @@
-package test;
+package Thread;
 
 public class Task implements Runnable{
 
