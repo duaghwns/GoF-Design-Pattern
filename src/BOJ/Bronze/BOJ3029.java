@@ -12,8 +12,8 @@ public class BOJ3029 {
         String[] currentTime = currentInput.split(":");
         String[] waitTime = waitInput.split(":");
 
-        int[] intCurrent = new int[currentTime.length];
-        int[] intWait = new int[waitTime.length];
+        int[] intCurrent = new int[3];
+        int[] intWait = new int[3];
 
         int j = 0;
         for (String dd:currentTime) {
@@ -34,22 +34,20 @@ public class BOJ3029 {
 
         if(intCurrent[0]>intWait[0]){
             hh = HH - intCurrent[0] + intWait[0];
-        } else {
-            hh = intWait[0] - intCurrent[0];
-        }
+        } else hh = intWait[0] - intCurrent[0];
+
 
         if(intCurrent[1]>intWait[1]){
             mm = MMSS - intCurrent[1] + intWait[1];
-        } else {
-            mm = intWait[1] - intCurrent[1];
-        }
+            hh--;
+        } else mm = intWait[1] - intCurrent[1];
+
 
         if(intCurrent[2]>intWait[2]){
             ss = MMSS - intCurrent[2] + intWait[2];
             mm--;
-        } else {
-            ss = intWait[2] - intCurrent[2];
-        }
+        } else ss = intWait[2] - intCurrent[2];
+
         String rst ="";
         rst += hh>10 ? String.valueOf(hh):"0" + hh;
         rst += ":";
