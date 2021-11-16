@@ -4,26 +4,18 @@ import java.util.*;
 
 class Solution {
     public static String[] solution(String[] record) {
-        String[] answer = {};
-        List<String> rsltAnswer = new ArrayList<>();
         List<String> inputStr = new ArrayList<>();
         List<String[]> rsltStr = new ArrayList<>();
-
+        List<String> rsltAnswer = new ArrayList<>();
         Map<String,String> user = new HashMap<>();
 
-        for(int i=0;i< record.length;i++){
+        for(int i=0;i< record.length;i++) {
             inputStr.add(record[i]);
-        }
-
-        for (int i=0;i<inputStr.size();i++) {
             rsltStr.add(inputStr.get(i).split(" "));
         }
 
         for (int i=0;i<inputStr.size();i++) {
-            if(rsltStr.get(i)[0].equals("Enter")){
-                user.put(rsltStr.get(i)[1],rsltStr.get(i)[2]);
-            } else if(rsltStr.get(i)[0].equals("Change")){
-                user.remove(rsltStr.get(i)[1]);
+            if(rsltStr.get(i)[0].equals("Enter")||rsltStr.get(i)[0].equals("Change")){
                 user.put(rsltStr.get(i)[1],rsltStr.get(i)[2]);
             }
         }
@@ -38,7 +30,7 @@ class Solution {
             }
         }
 
-        answer = new String[rsltAnswer.size()];
+        String[] answer = new String[rsltAnswer.size()];
         int size = 0;
         for(String dd:rsltAnswer){
             answer[size++] = dd;
