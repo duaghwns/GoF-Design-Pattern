@@ -41,9 +41,7 @@ class Solution {
     public static void main(String[] args) {
         String[] asdf = {"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"};
 
-        asdf = solution(asdf);
-
-        for(String dd:asdf){
+        for(String dd:solution(asdf)){
             System.out.println(dd);
         }
     }
