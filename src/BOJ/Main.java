@@ -1,66 +1,32 @@
 package BOJ;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int[] ii = new int[3];
+        int i = 0;
 
-        String currentInput = sc.nextLine();
-        String waitInput = sc.nextLine();
-        sc.close();
+        boolean tt = true;
+        do {
+            String input = sc.nextLine();
+            ii[i++] = Integer.parseInt(input.split(" ")[i++]);
+            if(i==2) tt = false;
+        } while(tt);
 
-        if(currentInput.equals(waitInput)){
-            System.out.println("24:00:00");
-            System.exit(0);
+        i=0;
+        if(ii[1]==ii[0] && ii[1]==ii[2]){
+            i = 10000 + (ii[1] * 1000);
         }
-
-        String[] currentTime = currentInput.split(":");
-        String[] waitTime = waitInput.split(":");
-
-        int[] intCurrent = new int[3];
-        int[] intWait = new int[3];
-
-        int j = 0;
-        for (String dd:currentTime) {
-            intCurrent[j] = Integer.parseInt(dd);
-            j++;
+        else if(ii[1]==ii[0]||ii[1]==ii[2]){
+            int v = ii[1];
+            i = 1000 + v * 100;
+        } else if(ii[1]!=ii[0] && ii[1]!=ii[2]) {
+            int max = Arrays.stream(ii).max().getAsInt();
+            i = max * 100;
         }
-        j=0;
-        for (String dd:waitTime) {
-            intWait[j] = Integer.parseInt(dd);
-            j++;
-        }
-
-        final int HH = 24;
-        final int MMSS = 60;
-        int hh = 0;
-        int mm = 0;
-        int ss = 0;
-
-        if(intCurrent[0]>intWait[0]){
-            hh = HH - intCurrent[0] + intWait[0];
-        } else hh = intWait[0] - intCurrent[0];
-
-
-        if(intCurrent[1]>intWait[1]){
-            mm = MMSS - intCurrent[1] + intWait[1];
-            hh--;
-        } else mm = intWait[1] - intCurrent[1];
-
-
-        if(intCurrent[2]>intWait[2]){
-            ss = MMSS - intCurrent[2] + intWait[2];
-            mm--;
-        } else ss = intWait[2] - intCurrent[2];
-
-        String rst ="";
-        rst += hh>10 ? String.valueOf(hh):"0" + hh;
-        rst += ":";
-        rst += mm>10 ? String.valueOf(mm):"0" + mm;
-        rst += ":";
-        rst += ss>10 ? String.valueOf(ss):"0" + ss;
-
-        System.out.println(rst);
+        System.out.println(i);
     }
 }
