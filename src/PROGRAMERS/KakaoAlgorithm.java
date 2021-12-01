@@ -1,39 +1,32 @@
 package PROGRAMERS;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-class KakaoAlgorithm {
+public class KakaoAlgorithm {
     public static String[] solution(String[] record) {
-        List<String> inputStr = new ArrayList<>();
-        List<String[]> rsltStr = new ArrayList<>();
-        List<String> rsltAnswer = new ArrayList<>();
-        Map<String,String> user = new HashMap<>();
-
-        for(int i=0;i< record.length;i++) {
-            inputStr.add(record[i]);
-            rsltStr.add(inputStr.get(i).split(" "));
-        }
-
-        for (int i=0;i<inputStr.size();i++) {
-            if(rsltStr.get(i)[0].equals("Enter")||rsltStr.get(i)[0].equals("Change")){
-                user.put(rsltStr.get(i)[1],rsltStr.get(i)[2]);
+        int len = record.length;
+        String[][] test = new String[len][3];
+        Map<String, String> user = new HashMap<String,String>();
+        int rstLen = 0;
+        for(int i = 0; i < len; i++){
+            test[i] = record[i].split(" ");
+            if(test[i][0].equals("Enter")||test[i][0].equals("Change")){
+                user.put(test[i][1],test[i][2]);
+            }
+            if(test[i][0].equals("Enter")||test[i][0].equals("Leave")){
+                rstLen++;
             }
         }
-
-        for (int i=0;i<inputStr.size();i++) {
-            if(rsltStr.get(i)[0].equals("Enter")){
-                rsltAnswer.add(user.get(rsltStr.get(i)[1]) + "님이 들어왔습니다.");
-            } else if(rsltStr.get(i)[0].equals("Leave")){
-                rsltAnswer.add(user.get(rsltStr.get(i)[1]) + "님이 나갔습니다.");
-            } else {
-                continue;
+        String[] answer = new String[rstLen];
+        for(int i = 0; i < len; i++){
+            if(test[i][0].equals("Enter")){
+                answer[i] = user.get(test[i][1]) + "님이 들어왔습니다.";
+            } else if(test[i][0].equals("Leave")) {
+                answer[i] = user.get(test[i][1]) + "님이 나갔습니다.";
             }
-        }
-
-        String[] answer = new String[rsltAnswer.size()];
-        int size = 0;
-        for(String dd:rsltAnswer){
-            answer[size++] = dd;
         }
         return answer;
     }
