@@ -37,12 +37,6 @@ public class BOJ1564 {
 
         }
         StringBuffer sb = new StringBuffer(rst);
-
-//        System.out.println("input : " + input);
-//        System.out.println("index : " + findByIndex(input));
-//        System.out.println("rst : "+ rst);
         System.out.println(sb.reverse().toString());
-
-
     }
 }
