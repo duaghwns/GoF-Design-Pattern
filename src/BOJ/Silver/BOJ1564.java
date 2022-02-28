@@ -3,7 +3,6 @@ package BOJ.Silver;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.Stack;
 
 public class BOJ1564 {
@@ -28,14 +27,14 @@ public class BOJ1564 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Stack stack = new Stack();
-        String rst = "";
+        StringBuffer rst = new StringBuffer();
         String input = String.valueOf(factorial(Integer.parseInt(br.readLine())));
 
         for(int i=0;i<=findByIndex(input);i++){
            stack.push(input.charAt(i));
         }
         for(int i=0;i<5;i++){
-            rst += stack.pop();
+            rst.append(stack.pop());
         }
         StringBuffer sb = new StringBuffer(rst);
         System.out.print(sb.reverse());
