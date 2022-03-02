@@ -36,7 +36,6 @@ public class BOJ1564 {
         for(int i=0;i<5;i++){
             rst.append(stack.pop());
         }
-        StringBuffer sb = new StringBuffer(rst);
-        System.out.print(sb.reverse());
+        System.out.print(rst.reverse());
     }
 }
