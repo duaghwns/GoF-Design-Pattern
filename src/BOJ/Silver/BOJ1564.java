@@ -34,7 +34,7 @@ public class BOJ1564 {
            stack.push(input.charAt(i));
         }
         for(int i=0;i<5;i++){
-            rst.append(stack.pop());
+            if(!stack.empty()) rst.append(stack.pop());
         }
         System.out.print(rst.reverse());
     }
