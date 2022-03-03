@@ -1,6 +1,8 @@
 package BOJ.Bronze;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BOJ1145 {
     /*
@@ -10,10 +12,14 @@ public class BOJ1145 {
       서로 다른 다섯 개의 자연수가 주어질 때, 적어도 대부분의 배수를 출력하는 프로그램을 작성하시오.
     */
     public static void main(String[] args) throws IOException {
+        int[] arr = new int[5];
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        String[] strArr = br.readLine().split(" ");
 
-        String[] arr = br.readLine().split(" ");
+        for(int i=0;i<arr.length;i++){
+            arr[i] = Integer.parseInt(strArr[i]);
+            System.out.print(arr[i]+" ");
+        }
 
 
 
