@@ -29,8 +29,9 @@ public class BOJ1564 {
         Stack stack = new Stack();
         StringBuffer rst = new StringBuffer();
         String input = String.valueOf(factorial(Integer.parseInt(br.readLine())));
+        int index = findByIndex(input);
 
-        for(int i=0;i<=findByIndex(input);i++){
+        for(int i=0;i<=index;i++){
            stack.push(input.charAt(i));
         }
         for(int i=0;i<5;i++){
