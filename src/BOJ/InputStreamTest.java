@@ -7,14 +7,17 @@ public class InputStreamTest {
         InputStream input = System.in;
         Reader reader = new InputStreamReader(input);
         BufferedReader bufferedReader = new BufferedReader(reader);
-
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         System.out.print("입력 : ");
         String lineString =  bufferedReader.readLine();
-        System.out.println("출력 : "+ lineString);
+        bw.write("출력 : " + lineString);
 
         System.out.print("입력 : ");
         String hi = bufferedReader.readLine();
-        System.out.println("출력 : "+ hi);
+        bw.write("출력 : " + hi);
+        bw.flush();
 
+        bufferedReader.close();
+        bw.close();
     }
 }
