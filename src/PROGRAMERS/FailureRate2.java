@@ -1,26 +1,34 @@
 package PROGRAMERS;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FailureRate2 {
-    public static int[] solution(int N, int[] stages) {
+    public static double[] solution(int N, int[] stages) {
         int[] answer = new int[N];
         Arrays.sort(stages);
         double[] rate = new double[N];
-        int CNT = stages.length;
+        Map<Integer,Double> map = new HashMap<Integer,Double>();
+
         int rateIndex = 0;
-        for(int i=0;i<N;i++){
-            if(i<N-1){
-                int cnt = 0;
-                if(stages[i]==stages[i++]){
+        int cnt = 0;
+        int CNT = stages.length;
+        for(int i=0;i<N;i++) {
+            if(i<N-1) {
+                if(stages[i]==stages[i++]) {
                     cnt++;
                 } else {
-                    rate[rateIndex++] = cnt / CNT;
+                    rate[rateIndex++] = (double)cnt / (double) CNT;
                     CNT -= cnt;
+                    cnt = 0;
                 }
             }
         }
-        return stages;
+
+
+
+        return rate;
     }
 
 
@@ -28,7 +36,7 @@ public class FailureRate2 {
         int N = 5;
         int[] stages = {2,1,2,6,2,4,3,3};
 
-        for(int dd: solution(N,stages)){
+        for(double dd: solution(N,stages)) {
             System.out.print(dd+" ");
         }
     }
