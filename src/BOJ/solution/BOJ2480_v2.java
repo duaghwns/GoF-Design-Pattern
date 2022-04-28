@@ -9,8 +9,7 @@ import java.util.stream.Stream;
 public class BOJ2480_v2 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] input = br.readLine().split(" ");
-        int[] numbers = Arrays.stream(input).mapToInt(Integer::parseInt).toArray();
+        int[] numbers = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         int bigger = 0, sameNum = 0, money = 0, cnt = 1, i = 0;
 
         while(i<3) {
