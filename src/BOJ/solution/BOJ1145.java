@@ -1,4 +1,4 @@
-package BOJ.Bronze;
+package BOJ.solution;
 
 import java.io.*;
 import java.util.ArrayList;

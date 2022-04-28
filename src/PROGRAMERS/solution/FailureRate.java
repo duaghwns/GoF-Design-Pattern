@@ -1,4 +1,4 @@
-package PROGRAMERS;
+package PROGRAMERS.solution;
 
 import java.util.*;
 

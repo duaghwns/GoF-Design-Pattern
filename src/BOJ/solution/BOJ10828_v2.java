@@ -1,4 +1,4 @@
-package BOJ.Silver;
+package BOJ.solution;
 
 import java.io.*;
 import java.util.Stack;
