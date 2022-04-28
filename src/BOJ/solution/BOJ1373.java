@@ -1,4 +1,4 @@
-package BOJ.Bronze;
+package BOJ.solution;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
