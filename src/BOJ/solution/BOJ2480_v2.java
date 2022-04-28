@@ -23,8 +23,8 @@ public class BOJ2480_v2 {
         }
 
         switch(cnt){
-            case 3: money += (sameNum * 1000) + 10000; break;
-            case 2: money += (sameNum * 100) + 1000; break;
+            case 3: money += sameNum * 1000 + 10000; break;
+            case 2: money += sameNum * 100 + 1000; break;
             case 1: money += bigger * 100; break;
         }
         System.out.print(money);
