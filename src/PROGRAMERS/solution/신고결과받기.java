@@ -49,12 +49,12 @@ public class 신고결과받기 {
 
 
     public static void main(String[] args) {
-//        String[] id_list = {"muzi", "frodo", "apeach", "neo"};
-//        String[] report = {"muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"};
-//        int k = 2;
-        String[] id_list = {"con", "ryan"};
-        String[] report = {"ryan con", "ryan con", "ryan con", "ryan con"};
-        int k = 3;
+        String[] id_list = {"muzi", "frodo", "apeach", "neo"};
+        String[] report = {"muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"};
+        int k = 2;
+//        String[] id_list = {"con", "ryan"};
+//        String[] report = {"ryan con", "ryan con", "ryan con", "ryan con"};
+//        int k = 3;
 
         for (int i : solution(id_list, report, k)) {
             System.out.print(i +" ");
