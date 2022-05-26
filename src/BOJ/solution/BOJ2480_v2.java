@@ -1,13 +1,15 @@
 package BOJ.solution;
 
 import java.io.*;
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class BOJ2480_v2 {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int[] numbers = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        Scanner sc = new Scanner(System.in);
+        int[] numbers = new int[3];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = sc.nextInt();
+        }
         int bigger = 0, sameNum = 0, money = 0, cnt = 1, i = 0;
 
         while(i<3) {
@@ -24,8 +26,6 @@ public class BOJ2480_v2 {
             case 2: money += sameNum * 100 + 1000; break;
             case 1: money += bigger * 100; break;
         }
-        bw.write(money+"");
-        bw.flush();
-        bw.close();
+        System.out.print(money);
     }
 }
