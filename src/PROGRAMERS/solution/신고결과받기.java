@@ -10,19 +10,26 @@ public class 신고결과받기 {
         int[] answer = new int[id_list.length];
         Map<String, List<String>> map = new HashMap<>();
         Map<String, Integer> cnt = new HashMap<>();
+
+        // 중복제거
         List<Object> list = Stream.of(Arrays.stream(report).distinct().toArray()).collect(Collectors.toList());
 
         for (String user : id_list) {
+            // 신고받은 유저 0으로 초기화
             cnt.put(user, 0);
+
             ArrayList li = new ArrayList();
-            for (Object item : list) {
-                String[] obj = item.toString().split(" ");
-                if(user.equals(obj[0])){
-                    li.add((obj[1]));
+
+            for (Object obj : list) {
+                String[] item = obj.toString().split(" ");
+
+                // 사용자 신고
+                if(user.equals(item[0])){
+                    li.add((item[1]));
                     map.put(user, li);
                 }
-
-                if (user.equals(obj[1])) {
+                // 신고받은 유저 카운트
+                if (user.equals(item[1])) {
                     cnt.put(user, cnt.get(user) + 1);
                 }
             }
