@@ -2,7 +2,7 @@ package PROGRAMERS.skill_test;
 
 import java.util.Scanner;
 
-public class Level1_1 {
+public class 최소공배수_최대공약수_구하기 {
     static int[] solution(int n, int m) {
         int[] answer = new int[2];
         int min = n > m ? m : n;
