@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 public class 오픈채팅방 {
+
     static String[] solution(String[] record) {
+
         String[][] arr = new String[record.length][3];
-        List<String> rst = new ArrayList<>();
         Map<String, String> user = new HashMap<>();
+        List<String> rst = new ArrayList<>();
 
         for(int i = 0; i < record.length; i++){
             arr[i] = record[i].split(" ");
