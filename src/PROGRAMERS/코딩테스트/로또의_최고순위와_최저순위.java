@@ -14,18 +14,20 @@ public class 로또의_최고순위와_최저순위 {
 
         for (int i = 0; i < l_lottos.size(); i++) {
             for (int j = 0; j < l_win.size(); j++) {
-
                 if(l_lottos.get(i) == 0) {
                     answer[0]--;
                     i++;
-                    if(i==l_lottos.size()-1) break;
                 } else {
-                    if(l_lottos.get(i)==l_win.get(j)){
+                    if(l_lottos.get(i) == l_win.get(j)){
                         answer[0]--;
                         answer[1]--;
                     }
                 }
             }
+        }
+
+        for (int i = 0; i < 2; i++) {
+            if(answer[i]==0) answer[i] = 1;
         }
 
         for (int i : answer) {
@@ -38,6 +40,6 @@ public class 로또의_최고순위와_최저순위 {
         solution(new int[]{44, 1, 0, 0, 31, 25}, new int[]{31, 10, 45, 1, 6, 19});
         solution(new int[]{0, 0, 0, 0, 0, 0}, new int[]{38, 19, 20, 40, 15, 25});
         solution(new int[]{45, 4, 35, 20, 3, 9}, new int[]{20, 9, 3, 45, 4, 35});
-        solution(new int[]{1,2,0,0,5,6}, new int[]{6,5,4,3,2,1});
+        solution(new int[]{1,2,0,0,5,45}, new int[]{6,5,4,3,2,1});
     }
 }
