@@ -1,4 +1,4 @@
-package GOF.Singleton;
+package java_study.GOF.Singleton;
 
 public class ThreadSafe {
     private static ThreadSafe instance;

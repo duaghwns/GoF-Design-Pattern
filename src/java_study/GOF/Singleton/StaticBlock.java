@@ -1,4 +1,4 @@
-package GOF.Singleton;
+package java_study.GOF.Singleton;
 
 // 가장 기본적인 형태의 싱글톤
 public class StaticBlock {

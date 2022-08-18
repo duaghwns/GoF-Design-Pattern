@@ -1,4 +1,4 @@
-package Thread;
+package java_study.Thread;
 
 public class Task implements Runnable{
 
