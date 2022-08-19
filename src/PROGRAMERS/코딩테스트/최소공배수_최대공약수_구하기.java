@@ -1,4 +1,4 @@
-package PROGRAMERS.skill_test;
+package PROGRAMERS.코딩테스트;
 
 import java.util.Scanner;
 
