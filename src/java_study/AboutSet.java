@@ -8,10 +8,10 @@ import java.util.Set;
 public class AboutSet {
     public static void main(String[] args) {
         Set set = new HashSet();
-        Random rd = new Random();
+        Random random = new Random();
 
         do {
-            set.add(rd.nextInt(45));
+            set.add(random.nextInt(45));
         }
         while(set.size()!=6);
 
