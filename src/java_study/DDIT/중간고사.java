@@ -101,11 +101,15 @@ public class 중간고사 {
         System.out.println("====================================================================================");
         System.out.println("\t\t| 국어\t\t영어\t\t수학\t\t사회\t\t과학\t\tJava\tOracle\t| 합계\t평균\t    석차");
         System.out.println("--------┼-----------------------------------------------------------┼-------------------");
+
         for (int i = 0; i < names.length; i++) {
+
             System.out.printf("%s\t\t| %s", names[i], score[i][0]);
+
             for (int j = 1; j < subjects.length; j++) {
                 System.out.printf("\t\t%s", score[i][j]);
             }
+
             System.out.printf("\t\t| %s\t%s\t%s\n", nameSum[i], String.format("%.2f",nameAvg[i]), rank[i]);
         }
 
@@ -115,10 +119,13 @@ public class 중간고사 {
         for(int i=0;i< subjects.length;i++){
             System.out.printf("%s\t\t", subSum[i]);
         }
+
         System.out.printf("\n평균\t    | %s\t\t%s\t", String.format("%.2f",subAvg[0]), String.format("%.2f",subAvg[1]));
+
         for(int i=2;i< subjects.length;i++){
             System.out.printf("%s\t", String.format("%.2f",subAvg[i]));
         }
+
         System.out.println();
         System.out.println("====================================================================================");
 
