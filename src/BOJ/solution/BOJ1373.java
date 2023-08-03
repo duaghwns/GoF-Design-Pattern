@@ -2,12 +2,9 @@ package BOJ.solution;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class BOJ1373 {
     // 2진수 8진수로 변환하기
-    // https://www.acmicpc.net/problem/1373
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -15,9 +12,7 @@ public class BOJ1373 {
         int len = str.length();
         String rtn = "";
 
-        List<String> list = new ArrayList<>();
         for (int i = 0; i < str.length() / 3; i++) {
-            list.add(str.substring(len-3 , len));
             rtn = convertBinaryToDecimal(str.substring(len-3 , len)) + rtn;
             len = len -3;
         }
@@ -56,9 +51,8 @@ public class BOJ1373 {
                 break;
             case 1:
                 if(str.charAt(0) == '1') {
-                    a += 1;
+                    return "1";
                 }
-                break;
         }
 
         return a + "";
