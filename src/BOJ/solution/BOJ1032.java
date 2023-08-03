@@ -8,7 +8,7 @@ import java.sql.SQLOutput;
 
 public class BOJ1032 {
     /*
-        명령 프롬프트
+        1032번 : 명령 프롬프트
         문제 : 시작 -> 실행 -> cmd를 쳐보자. 검정 화면이 눈에 보인다.
         여기서 dir이라고 치면 그 디렉토리에 있는 서브디렉토리와 파일이 모두 나온다.
         이때 원하는 파일을 찾으려면 다음과 같이 하면 된다.
@@ -21,13 +21,29 @@ public class BOJ1032 {
         패턴에는 알파벳과 "." 그리고 "?"만 넣을 수 있다. 가능하면 ?을 적게 써야 한다.
         그 디렉토리에는 검색 결과에 나온 파일만 있다고 가정하고, 파일 이름의 길이는 모두 같다.
      */
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuffer sb = new StringBuffer();
+        String[] arr = new String[Integer.parseInt(br.readLine())];
 
-        System.out.println("Hello, World!");
-        System.out.println("아무거나 입력하세요 : ");
-        String str = br.readLine();
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = br.readLine();
+        }
 
+        for (int i = 0; i < arr.length; i++) {
+            if (i == 0) {
+                for (int j = 0; j < arr[i].length(); j++) {
+                    sb.append(arr[i].charAt(j));
+                }
+            } else {
+                for (int j = 0; j < arr[i].length(); j++) {
+                    if (sb.charAt(j) != arr[i].charAt(j)) {
+                        sb.replace(j, j + 1, "?");
+                    }
+                }
+            }
+        }
+
+        System.out.print(sb);
     }
 }
