@@ -9,30 +9,58 @@ public class BOJ1373 {
     // 2진수 8진수로 변환하기
     // https://www.acmicpc.net/problem/1373
     public static void main(String[] args) throws Exception {
-        List<String> substr = new ArrayList<>();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String rst = br.readLine();
-        int num;
 
-        switch (rst.length() % 3){
-            case 2: rst = "0" + rst; break;
-            case 1: rst = "00" + rst; break;
+        String str = br.readLine();
+        int len = str.length();
+        String rtn = "";
+
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < str.length() / 3; i++) {
+            list.add(str.substring(len-3 , len));
+            rtn = convertBinaryToDecimal(str.substring(len-3 , len)) + rtn;
+            len = len -3;
         }
 
-        for(int i=0;i<rst.length();i++){
-            if(i+3<=rst.length() && i%3==0){
-                substr.add(rst.substring(i, i+3));
-            }
+        if(len % 3 > 0) {
+            rtn = convertBinaryToDecimal(str.substring(0, len % 3)) + rtn;
         }
 
-        rst = "";
 
-        for (int i = 0; i < substr.size(); i++) {
-            num = substr.get(i).charAt(2)=='1' ? 1:0;
-            num += substr.get(i).charAt(1)=='1' ? 2:0;
-            num += substr.get(i).charAt(0)=='1' ? 4:0;
-            rst += num + "";
+        System.out.println(rtn);
+    }
+
+
+    private static String convertBinaryToDecimal(String str) {
+        int a = 0;
+
+        switch (str.length()){
+            case 3:
+                if(str.charAt(0) == '1') {
+                    a += 4;
+                }
+                if(str.charAt(1)== '1'){
+                    a += 2;
+                }
+                if(str.charAt(2) == '1') {
+                    a += 1;
+                }
+                break;
+            case 2:
+                if(str.charAt(0)== '1'){
+                    a += 2;
+                }
+                if(str.charAt(1) == '1') {
+                    a += 1;
+                }
+                break;
+            case 1:
+                if(str.charAt(0) == '1') {
+                    a += 1;
+                }
+                break;
         }
-        System.out.println(rst);
+
+        return a + "";
     }
 }
