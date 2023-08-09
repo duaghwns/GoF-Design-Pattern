@@ -29,9 +29,16 @@ public class 자바중복제거 {
         System.out.println("====== used Collectors.toMap() ======");
         System.out.println(removeMsg);
         useCollectorsToMap(arr);
+
+        System.out.println("====== used Collectors.toMap() ======");
+        useCollectionsFrequency(arr);
     }
 
-    /* Collectors.toSet() 사용하기 */
+    /**
+     * Collectors.toSet()
+     * 중복을 허용하지 않는 Set 자료구조를 이용하여 add 메서드를 사용해 중복 요소를 찾아낸다.
+     * @param arr
+     */
     private static void useCollectorsToSet(String[] arr) {
         Set<String> set = new HashSet<>();
 
@@ -59,6 +66,10 @@ public class 자바중복제거 {
         System.out.println(list);
     }
 
+    /**
+     *
+     * @param arr
+     */
     private static void useStreamDistinctFindDuplicates(String[] arr) {
         // 종복된 항목을 찾기 위해서는 비교를 해야하기 때문에 새로운 객체로 복사
         List<String> list = new ArrayList<>(Arrays.asList(arr));
@@ -76,6 +87,11 @@ public class 자바중복제거 {
     }
 
 
+    /**
+     * Collectors.toMap()
+     * stream 요소를 Map 컬렉션으로 변환한다.
+     * @param arr
+     */
     private static void useCollectorsToMap(String[] arr) {
         Stream<String> stream = Stream.of(arr);
 
@@ -84,6 +100,19 @@ public class 자바중복제거 {
                         value -> 1, Integer::sum));
 
         System.out.println(map);
+    }
+
+    /**
+     * Collections.frequency()
+     * 각 요소를 순회하여 요소의 갯수 반환한다.
+     * @param arr
+     */
+    private static void useCollectionsFrequency(String[] arr) {
+        List<String> list = Arrays.asList(arr);
+
+        list.stream().filter(i -> Collections.frequency(list, i) > 1)
+                .collect(Collectors.toSet())
+                .forEach(System.out::println);
     }
 
 }
