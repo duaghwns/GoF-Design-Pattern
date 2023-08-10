@@ -49,6 +49,11 @@ public class 자바중복제거 {
         System.out.println(arr.toString());
     }
 
+    /**
+     * Collectors.toSet()
+     * 중복된 값이 무엇인지 찾아내기
+     * @param arr
+     */
     private static void useCollectorsToSetFindDuplicates(String[] arr) {
         Set<String> set = new HashSet<>();
 
@@ -57,6 +62,11 @@ public class 자바중복제거 {
                 .forEach(item -> System.out.println(item));
     }
 
+    /**
+     * stream.distinct()
+     * distinct() 메서드는 중복되는 요소들을 제거하고 새로운 스트림을 반환함.
+     * @param arr
+     */
     private static void useStreamDistinct(String[] arr) {
         List<String> list = Arrays.asList(arr)
                                         .stream()
@@ -67,7 +77,8 @@ public class 자바중복제거 {
     }
 
     /**
-     *
+     * Stream.distinct()
+     * 중복된 값이 무엇인지 찾아내기.
      * @param arr
      */
     private static void useStreamDistinctFindDuplicates(String[] arr) {
