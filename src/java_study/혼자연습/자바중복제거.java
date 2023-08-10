@@ -45,8 +45,6 @@ public class 자바중복제거 {
         Arrays.stream(arr).filter(n -> set.add(n))
                 .collect(Collectors.toSet())
                 .forEach(item -> System.out.println(item));
-
-        System.out.println(arr.toString());
     }
 
     /**
