@@ -24,6 +24,10 @@ public class BOJ3029 {
         int minute = (result % 3600) / 60;
         int second = (result % 3600) % 60;
 
+        if(hour == 0 && minute == 0 && second == 0) {
+            hour = 24;
+        }
+
         System.out.printf("%02d:%02d:%02d", hour, minute, second);
     }
 }
