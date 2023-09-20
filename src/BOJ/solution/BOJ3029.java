@@ -1,60 +1,29 @@
 package BOJ.solution;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class BOJ3029 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String currentInput = sc.nextLine();
-        String waitInput = sc.nextLine();
+        String[] now = br.readLine().split(":");
+        String[] target = br.readLine().split(":");
 
-        String[] currentTime = currentInput.split(":");
-        String[] waitTime = waitInput.split(":");
+        int nowTime = Integer.parseInt(now[0]) * 3600 + Integer.parseInt(now[1]) * 60 + Integer.parseInt(now[2]);
+        int targetTime = Integer.parseInt(target[0]) * 3600 + Integer.parseInt(target[1]) * 60 + Integer.parseInt(target[2]);
 
-        int[] intCurrent = new int[3];
-        int[] intWait = new int[3];
+        int result = targetTime - nowTime;
 
-        int j = 0;
-        for (String dd:currentTime) {
-            intCurrent[j] = Integer.parseInt(dd);
-            j++;
-        }
-        j=0;
-        for (String dd:waitTime) {
-            intWait[j] = Integer.parseInt(dd);
-            j++;
+        if (result < 0) {
+            result += 24 * 3600;
         }
 
-        final int HH = 24;
-        final int MMSS = 60;
-        int hh = 0;
-        int mm = 0;
-        int ss = 0;
+        int hour = result / 3600;
+        int minute = (result % 3600) / 60;
+        int second = (result % 3600) % 60;
 
-        if(intCurrent[0]>intWait[0]){
-            hh = HH - intCurrent[0] + intWait[0];
-        } else hh = intWait[0] - intCurrent[0];
-
-
-        if(intCurrent[1]>intWait[1]){
-            mm = MMSS - intCurrent[1] + intWait[1];
-            hh--;
-        } else mm = intWait[1] - intCurrent[1];
-
-
-        if(intCurrent[2]>intWait[2]){
-            ss = MMSS - intCurrent[2] + intWait[2];
-            mm--;
-        } else ss = intWait[2] - intCurrent[2];
-
-        String rst ="";
-        rst += hh>10 ? String.valueOf(hh):"0" + hh;
-        rst += ":";
-        rst += mm>10 ? String.valueOf(mm):"0" + mm;
-        rst += ":";
-        rst += ss>10 ? String.valueOf(ss):"0" + ss;
-
-        System.out.println(rst);
+        System.out.printf("%02d:%02d:%02d", hour, minute, second);
     }
 }
