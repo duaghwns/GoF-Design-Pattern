@@ -8,26 +8,26 @@ public class BOJ3029 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String[] now = br.readLine().split(":");
-        String[] target = br.readLine().split(":");
+        String[] a = br.readLine().split(":");
+        String[] b = br.readLine().split(":");
 
-        int nowTime = Integer.parseInt(now[0]) * 3600 + Integer.parseInt(now[1]) * 60 + Integer.parseInt(now[2]);
-        int targetTime = Integer.parseInt(target[0]) * 3600 + Integer.parseInt(target[1]) * 60 + Integer.parseInt(target[2]);
+        int now = Integer.parseInt(a[0]) * 3600 + Integer.parseInt(a[1]) * 60 + Integer.parseInt(a[2]);
+        int target = Integer.parseInt(b[0]) * 3600 + Integer.parseInt(b[1]) * 60 + Integer.parseInt(b[2]);
 
-        int result = targetTime - nowTime;
+        int rst = target - now;
 
-        if (result < 0) {
-            result += 24 * 3600;
+        if (rst < 0) {
+            rst += 24 * 3600;
         }
 
-        int hour = result / 3600;
-        int minute = (result % 3600) / 60;
-        int second = (result % 3600) % 60;
+        int h = rst / 3600;
+        int m = (rst % 3600) / 60;
+        int s = (rst % 3600) % 60;
 
-        if(hour == 0 && minute == 0 && second == 0) {
-            hour = 24;
+        if(h == 0 && m == 0 && s == 0) {
+            h = 24;
         }
-
-        System.out.printf("%02d:%02d:%02d", hour, minute, second);
+        
+        System.out.printf("%02d:%02d:%02d", h, m, s);
     }
 }
