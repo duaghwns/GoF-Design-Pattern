@@ -28,7 +28,7 @@ public class BOJ2562 {
         System.out.println(maximumValue.getIndex());
     }
 
-    private static class MaximumValue {
+    static class MaximumValue {
         private int value;
         private int index;
 
