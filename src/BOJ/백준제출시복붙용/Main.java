@@ -6,25 +6,41 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuffer sb = new StringBuffer();
 
-        String str = br.readLine();
-        int len = str.length();
+        int n = Integer.parseInt(br.readLine());
+        int[] arr = new int[n];
 
-        if (len % 3 == 1) {
-            sb.append(str.charAt(0));
-        } else if (len % 3 == 2) {
-            sb.append(((str.charAt(0)-'0') * 2) + (str.charAt(1)-'0'));
+        String[] s = br.readLine().split(" ");
+
+        MinMax minMax = new MinMax(0,0);
+
+        for (int i = 0; i < arr.length; i++) {
+            minMax.setMinMax(Integer.parseInt(s[i]));
         }
 
-        for (int i = len % 3; i < len; i += 3) {
-            sb.append(
-                    ((str.charAt(i)-'0') * 4)
-                            + ((str.charAt(i+1)-'0') * 2)
-                            + (str.charAt(i+2)-'0')
-            );
+        System.out.print(minMax.returnMinMax());
+    }
+
+    static class MinMax {
+        int min;
+        int max;
+
+        public void setMinMax(int n) {
+            if(min == 0 || min > n) {
+                min = n;
+            }
+            if(max < n) {
+                max = n;
+            }
         }
 
-        System.out.println(sb);
+        public String returnMinMax() {
+            return String.format("%d %d", min, max);
+        }
+
+        public MinMax(int min, int max) {
+            this.min = min;
+            this.max = max;
+        }
     }
 }
