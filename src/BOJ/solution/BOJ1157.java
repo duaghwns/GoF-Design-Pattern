@@ -30,7 +30,6 @@ public class BOJ1157 {
                 maxVal = ety.getValue();
             } else if (ety.getValue() == maxVal) {
                 maxKey = "?";
-                maxVal = ety.getValue();
             }
         }
 
