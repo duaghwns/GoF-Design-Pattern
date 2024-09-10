@@ -1,5 +1,8 @@
 package PROGRAMERS.코딩테스트;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  * [PCCP 기출문제] 1번 / 동영상 재생기
  *
@@ -15,23 +18,54 @@ package PROGRAMERS.코딩테스트;
  */
 public class PCCP_기출문제_1번_동영상_재생기 {
     public static String solution(String video_len, String pos, String op_start, String op_end, String[] commands) {
-        String answer = "";
+        String answer = check_to_opening(pos, op_start, op_end) ? op_end : pos;
 
-
-
-
+        for(String s : commands){
+            if(s.equals("next")){
+                answer = next(answer);
+            } else if(s.equals("prev")){
+                answer = prev(answer);
+            }
+        }
 
         return answer;
     }
 
-    public static String next(String time){
-
-        return "";
+    private static Boolean check_to_opening(String time, String op_start, String op_end) {
+        return true;
     }
 
-    public static String prev(String time){
+    private static String next(String time){
+        String[] times = time.split(":");
+        int minute = Integer.parseInt(times[0]);
+        int seconds = Integer.parseInt(times[1]) + 10;
 
-        return "";
+        if(seconds >= 60) {
+            minute++;
+            seconds -= 60;
+        }
+
+        return (minute < 10 ? "0" + minute : minute + "") + ":" + (seconds < 10 ? "0" + seconds : seconds + "");
+    }
+
+    private static String prev(String time){
+        String[] times = time.split(":");
+        int minute = Integer.parseInt(times[0]);
+        int seconds = Integer.parseInt(times[1]) - 10;
+
+        if(seconds < 0) {
+            minute--;
+
+            if(minute < 0){
+                minute = 0;
+            }
+
+            seconds += 60;
+        }
+
+
+
+        return (minute < 10 ? "0" + minute : minute + "") + ":" + (seconds < 10 ? "0" + seconds : seconds + "");
     }
 
     public static void main(String[] args) {
