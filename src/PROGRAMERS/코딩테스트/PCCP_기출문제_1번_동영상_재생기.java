@@ -1,7 +1,6 @@
 package PROGRAMERS.코딩테스트;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
 /**
  * [PCCP 기출문제] 1번 / 동영상 재생기
@@ -18,21 +17,31 @@ import java.time.format.DateTimeFormatter;
  */
 public class PCCP_기출문제_1번_동영상_재생기 {
     public static String solution(String video_len, String pos, String op_start, String op_end, String[] commands) {
-        String answer = check_to_opening(pos, op_start, op_end) ? op_end : pos;
+        String answer = check_to_opening(pos, op_start, op_end);
 
         for(String s : commands){
             if(s.equals("next")){
-                answer = next(answer);
+                answer = check_to_opening(next(answer), op_start, op_end);
             } else if(s.equals("prev")){
-                answer = prev(answer);
+                answer = check_to_opening(prev(answer), op_start, op_end);
             }
         }
 
         return answer;
     }
 
-    private static Boolean check_to_opening(String time, String op_start, String op_end) {
-        return true;
+    private static String check_to_opening(String time, String op_start, String op_end) {
+        int[] start_arr = Arrays.stream(op_start.split(":")).mapToInt(Integer::parseInt).toArray();
+        int[] end_arr = Arrays.stream(op_end.split(":")).mapToInt(Integer::parseInt).toArray();
+        int[] time_arr = Arrays.stream(time.split(":")).mapToInt(Integer::parseInt).toArray();
+
+        if(start_arr[0] <= time_arr[0] && end_arr[0] >= time_arr[0]){
+            if(start_arr[1]<=time_arr[1] && end_arr[1] >= time_arr[1]){
+                return op_end;
+            }
+        }
+
+        return time;
     }
 
     private static String next(String time){
@@ -57,7 +66,7 @@ public class PCCP_기출문제_1번_동영상_재생기 {
             minute--;
 
             if(minute < 0){
-                minute = 0;
+                return "00:00";
             }
 
             seconds += 60;
@@ -69,12 +78,14 @@ public class PCCP_기출문제_1번_동영상_재생기 {
     }
 
     public static void main(String[] args) {
-        String video_len = "34:33";
-        String pos = "13:00";
-        String op_start = "00:55";
-        String op_end = "02:55";
-        String[] commands = {"next", "prev"};
+        String[] video_len = {"34:33","10:55","07:22"};
+        String[] pos = {"13:00","00:05","04:05"};
+        String[] op_start = {"00:55","00:15","00:15"};
+        String[] op_end = {"02:55","06:55","04:07"};
+        String[][] commands = {{"next", "prev"},{"prev", "next", "next"},{"next"}};
 
-        System.out.print(solution(video_len, pos, op_start, op_end, commands));
+        for(int i=0;i<3;i++){
+            System.out.println(solution(video_len[i], pos[i], op_start[i], op_end[i], commands[i]));
+        }
     }
 }
